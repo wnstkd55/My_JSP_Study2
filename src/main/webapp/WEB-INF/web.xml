@@ -82,9 +82,29 @@
 		<!--   
 		<url-pattern>/MVC_M2/mvc_test/my.do</url-pattern>
 		-->
+		
+	<!--  -->
+	</servlet-mapping>
+		<servlet>
+		<servlet-name>MVCBoardList</servlet-name>
+		<servlet-class>model2.mvcboard.ListController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MVCBoardList</servlet-name>
+		<url-pattern>/mvcboard/list.do</url-pattern>
 	</servlet-mapping>
 
-
-
+	<!-- 페이징 처리를 위한 설정(변수값 할당) 출력 레코드 수 : 10개, 페이지수 : 5개 -->
+	<context-param>
+		<param-name>POSTS_PER_PAGE</param-name>
+		<param-value>10</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>PAGES_PER_BLOCK</param-name>
+		<param-value>5</param-value>
+	</context-param>
+	
+	
 </web-app>
 
