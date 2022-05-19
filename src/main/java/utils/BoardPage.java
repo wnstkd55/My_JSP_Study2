@@ -39,7 +39,9 @@ public class BoardPage {
             pagingStr += "<a href='" + reqUrl + "?pageNum=" + totalPages
                          + "'>[마지막 페이지]</a>";
         }
-
+        
+        System.out.println(pagingStr);
+        
         return pagingStr;
     }
 }
