@@ -177,7 +177,7 @@ public class MVCBoardDAO extends DBConnPool {
 		
 		try {
 			String query = "UPDATE mvcboard"
-					+ "SET title = ? , name = ?, content = ?, ofile = ?, sfile = ? "
+					+ " SET title = ? , name = ?, content = ?, ofile = ?, sfile = ? "
 					+ "WHERE idx = ? and pass = ?";
 			//쿼리문 준비
 			psmt = con.prepareStatement(query);
@@ -209,6 +209,9 @@ public class MVCBoardDAO extends DBConnPool {
 			psmt.setString(1, idx);
 			
 			result = psmt.executeUpdate();		//result > 0 삭제 성공, result = 0 :삭제 실패
+			
+			System.out.println("result: "+result);
+			
 		}catch(Exception e) {
 			
 		}

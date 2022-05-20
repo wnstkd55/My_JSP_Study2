@@ -2,11 +2,13 @@ package model2.mvcboard;
 
 import java.io.IOException;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+@WebServlet("/mvcboard/view.do")
 public class ViewController extends HttpServlet {
 
 	@Override
@@ -33,21 +35,12 @@ public class ViewController extends HttpServlet {
 		req.setAttribute("dto", dto); 
 		req.getRequestDispatcher("/mvcboard/View.jsp").forward(req, resp); 
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// Post 요청시 처리 블락
-		//System.out.println("ViewController 작동잘됨 (Post 요청 처리)");
+		// System.out.println("ViewController 작동잘됨 (Post 요청 처리)");
 	}
 	
 	
