@@ -35,12 +35,21 @@ public class ViewController extends HttpServlet {
 		req.setAttribute("dto", dto); 
 		req.getRequestDispatcher("/mvcboard/View.jsp").forward(req, resp); 
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// Post 요청시 처리 블락
-		// System.out.println("ViewController 작동잘됨 (Post 요청 처리)");
+		//System.out.println("ViewController 작동잘됨 (Post 요청 처리)");
 	}
 	
 	

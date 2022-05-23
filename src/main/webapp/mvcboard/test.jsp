@@ -8,9 +8,7 @@
 </head>
 <body>
 
-<%= request.getServletContext().getRealPath("/Uploads") %>
-
-
+<%= request.getServletContext().getRealPath("/Uploads")  %>
 
 </body>
 </html>

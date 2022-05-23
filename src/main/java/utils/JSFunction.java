@@ -2,76 +2,83 @@ package utils;
 
 import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspWriter;
 
 public class JSFunction {
 	
-	//ë©”ì„¸ì§€ ì•Œë¦¼ì°½ì„ ë„ìš´í›„ ëª…ì‹œí•œ URLë¡œ ì´ë™ í•©ë‹ˆë‹¤.
-	public static void alertLocation(String msg, String url, JspWriter out) {
+	//¸Ş¼¼Áö ¾Ë¸²Ã¢À» ¶ç¿îÈÄ ¸í½ÃÇÑ URL·Î ÀÌµ¿ ÇÕ´Ï´Ù. 
+	public static void alertLocation (String msg, String url, JspWriter out) {
 		
 		try {
 			String script = ""
-					+"<script>"
-					+"    alert('"+msg+"');"
-					+"    location.href = '"+url+"';"
-					+"</script>";
-			out.println(script);	//ìë°” ìŠ¤í¬ë¦½íŠ¸ ì½”ë“œë¥¼ outë‚´ì¥ ê°ì²´ë¡œ ì¶œë ¥.
+						  + "<script>"
+						  + "    alert ('" + msg + "');"
+						  + "    location.herf = '" + url + "';"
+						  + "</script>"; 
 			
-		}catch(Exception e){
-			e.printStackTrace();
+			out.println(script);     //ÀÚ¹Ù ½ºÅ©¸³Æ® ÄÚµå¸¦ out ³»Àå °´Ã¼·Î Ãâ·Â 
+			
+		}catch (Exception e) {
+			
 		}
 	}
 	
-	//ë©”ì„¸ì§€ ì•Œë¦¼ì°½ ë„ìš´ í›„ ì´ì „ í˜ì´ì§€ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤.
-	public static void alertBack(String msg, JspWriter out) {
+	//¸Ş½ÃÁö ¾Ë¸²Ã¢À» ¶ç¿îÈÄ ÀÌÀü ÆäÀÌÁö·Î µ¹¾Æ°©´Ï´Ù. 
+	public static void alertBack (String msg, JspWriter out) {
 		try {
 			String script = ""
-					+"<script>"
-					+"    alert('"+msg+"');"
-					+"    history.back();"
-					+"</script>";
-			out.println(script);
+						  + "<script>"
+						  + "    alert ('" + msg + "');"
+						  + "    history.back();"
+						  + "</script>";
 			
-		}catch(Exception e) {
-			e.printStackTrace();
+			out.println(script); 		
+					
+		}catch (Exception e) {
+			
 		}
 	}
+		
 	
-	//ë©”ì„¸ì§€ ì•Œë¦¼ì°½ì„ ë„ìš´ í›„ ëª…ì‹œí•œ URLë¡œ ì´ë™í•©ë‹ˆë‹¤.
-	public static void alertLocation(HttpServletResponse resp, String msg, String url) {
-		try {
-			resp.setContentType("text/html;charset=UTF-8");
-			PrintWriter writer = resp.getWriter();
-			
-			String script = ""
-					+"<script>"
-					+"    alert('"+msg+"');"
-					+"    location.href ='"+url+"';"
-					+"</script>";
-			
-			writer.print(script);
-			
-		}catch(Exception e) {
-		}
-	}
-	
-	//ë©”ì‹œì§€ ì•Œë¦¼ì°½ì„ ë„ìš´ í›„ ì´ì „ í˜ì´ì§€ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤.
-	public static void alertBack(HttpServletResponse resp, String msg) {
+	//¸Ş¼¼Áö ¾Ë¸²Ã¢À» ¶ç¿îÈÄ ¸í½ÃÇÑ URL·Î ÀÌµ¿ ÇÕ´Ï´Ù. 
+	public static void alertLocation (HttpServletResponse resp, String msg, String url) {
 		try {
 			resp.setContentType("text/html;charset=UTF-8");
-			PrintWriter writer = resp.getWriter();
+			PrintWriter writer = resp.getWriter(); 
+						
+			String script  = ""
+						   + "<script>"
+						   + "    alert('" + msg + "');"
+						   + "    location.href ='" + url + "';"
+						   + "</script>" ;
+			
+			writer.print(script); 
+			
+		}catch (Exception e) {		
+		}	
+	}
+	
+	//¸Ş½ÃÁö ¾Ë¸²Ã¢À» ¶ç¿îÈÄ ÀÌÀü ÆäÀÌÁö·Î µ¹¾Æ°©´Ï´Ù. 
+	public static void alertBack (HttpServletResponse resp, String msg) {
+		try {
+			resp.setContentType("text/html;charset=UTF-8");
+			PrintWriter writer = resp.getWriter(); 
 			
 			String script = ""
-					+"<script>"
-					+"    alert('"+msg+"');"
-					+"    history.back();"
-					+"</script>";
-			writer.print(script);
+					      + "<script>"
+					      + "    alert ('" + msg + "');"
+					      + "    history.back();"
+					      + "<script>" ; 
+			writer.print(script); 
 			
-		}catch(Exception e) {
+		}catch (Exception e) {
 			
 		}
 	}
 	
+	
+	
+
 }
