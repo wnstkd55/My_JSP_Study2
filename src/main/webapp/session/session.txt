@@ -1,0 +1,5 @@
+
+Session 시간 설정(톰켓의 기본 세션 유지 시간 : 30분)
+
+	1. Web.xml(분)
+	2. session.setMaxInactiveInterval(초)
