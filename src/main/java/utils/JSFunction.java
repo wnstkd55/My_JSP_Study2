@@ -2,83 +2,75 @@ package utils;
 
 import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspWriter;
 
-public class JSFunction {
-	
-	//¸Ş¼¼Áö ¾Ë¸²Ã¢À» ¶ç¿îÈÄ ¸í½ÃÇÑ URL·Î ÀÌµ¿ ÇÕ´Ï´Ù. 
-	public static void alertLocation (String msg, String url, JspWriter out) {
-		
-		try {
-			String script = ""
-						  + "<script>"
-						  + "    alert ('" + msg + "');"
-						  + "    location.herf = '" + url + "';"
-						  + "</script>"; 
-			
-			out.println(script);     //ÀÚ¹Ù ½ºÅ©¸³Æ® ÄÚµå¸¦ out ³»Àå °´Ã¼·Î Ãâ·Â 
-			
-		}catch (Exception e) {
-			
-		}
-	}
-	
-	//¸Ş½ÃÁö ¾Ë¸²Ã¢À» ¶ç¿îÈÄ ÀÌÀü ÆäÀÌÁö·Î µ¹¾Æ°©´Ï´Ù. 
-	public static void alertBack (String msg, JspWriter out) {
-		try {
-			String script = ""
-						  + "<script>"
-						  + "    alert ('" + msg + "');"
-						  + "    history.back();"
-						  + "</script>";
-			
-			out.println(script); 		
-					
-		}catch (Exception e) {
-			
-		}
-	}
-		
-	
-	//¸Ş¼¼Áö ¾Ë¸²Ã¢À» ¶ç¿îÈÄ ¸í½ÃÇÑ URL·Î ÀÌµ¿ ÇÕ´Ï´Ù. 
-	public static void alertLocation (HttpServletResponse resp, String msg, String url) {
-		try {
-			resp.setContentType("text/html;charset=UTF-8");
-			PrintWriter writer = resp.getWriter(); 
-						
-			String script  = ""
-						   + "<script>"
-						   + "    alert('" + msg + "');"
-						   + "    location.href ='" + url + "';"
-						   + "</script>" ;
-			
-			writer.print(script); 
-			
-		}catch (Exception e) {		
-		}	
-	}
-	
-	//¸Ş½ÃÁö ¾Ë¸²Ã¢À» ¶ç¿îÈÄ ÀÌÀü ÆäÀÌÁö·Î µ¹¾Æ°©´Ï´Ù. 
-	public static void alertBack (HttpServletResponse resp, String msg) {
-		try {
-			resp.setContentType("text/html;charset=UTF-8");
-			PrintWriter writer = resp.getWriter(); 
-			
-			String script = ""
-					      + "<script>"
-					      + "    alert ('" + msg + "');"
-					      + "    history.back();"
-					      + "<script>" ; 
-			writer.print(script); 
-			
-		}catch (Exception e) {
-			
-		}
-	}
-	
-	
-	
+import oracle.net.aso.s;
 
+public class JSFunction {
+
+	//ìë°” ìŠ¤í¬ë¦½íŠ¸ë¥¼ htmlë¡œ ë‚˜ê°ˆìˆ˜ ìˆë„ë¡ í•¨.
+	
+	
+	
+	//ë©”ì„¸ì§€ ì•Œë¦¼ì°½ì„ ë„ìš´ í›„ ëª…ì‹œí•œ urlë¡œ ì´ë™í•©ë‹ˆë‹¤.
+	public static void alertLocation(String msg, String url, JspWriter out) {
+		try {
+			String script = ""
+						+ "<script>"
+						+ " alert('" + msg + "');"
+						+ "location.href = '" + url + "';"
+						+ "</script>";
+			
+			out.println(script); //ìë°” ìŠ¤í¬ë¦½íŠ¸ ì½”ë“œë¥¼ out ë‚´ì¥ ê°ì²´ë¡œ ì¶œë ¥
+			
+			}catch (Exception e) {}
+	}
+	
+	
+	//ë©”ì‹œì§€ ì•Œë¦¼ì°½ì„ ë„ìš´ í›„ ì´ì „ í˜ì´ì§€ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤.
+	public static void alertBack(String msg, JspWriter out) {
+		try {
+			String script = ""
+						+ " alert('" + msg + "');"
+						+ " history.back();"
+						+ "</script>";
+			
+			out.println(script);
+			
+		}catch (Exception e) {}
+	}
+	
+	//ë©”ì„¸ì§€ ì•Œë¦¼ì°½ì„ ë„ìš´ í›„ ëª…ì‹œí•œ urlë¡œ ì´ë™
+	public static void alertLocation(HttpServletResponse resp, String msg, String url) {
+		try {
+			resp.setContentType("text/html; charset=UTF-8");
+			PrintWriter writer = resp.getWriter(); 
+			
+			String script = ""
+					+ "<script>"
+					+ " alert('" + msg + "');"
+					+ " location.href ='" + url + "';"
+					+ "</script>" ;
+			writer.print(script);
+		}catch (Exception e) {	}
+		
+	}
+
+//ë©”ì‹œì§€ ì•Œë¦¼ì°½ì„ ë„ìš´ í›„ ì´ì „ í˜ì´ì§€ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤.
+	public static void alertBack(HttpServletResponse resp, String msg) { //ë©”ì†Œë“œ ì˜¤ë²„ë¡œë”© 
+		try {
+			resp.setContentType("text/html; charset=UTF-8");
+			PrintWriter writer = resp.getWriter(); 
+			
+			String script = ""
+						+ "<script>"
+						+ " alert('" + msg + "');"
+						+ "history.back();"
+						+ "<script>";
+			writer.print(script);
+		} catch (Exception e) {}
+	}
 }
