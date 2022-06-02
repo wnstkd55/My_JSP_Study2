@@ -33,11 +33,12 @@ $(document).ready(function(){
 	   checkIt(); //입력폼에 입력한 상황 체크
 	   
 	   if(status){
-		  var query = {id:$("#id").val(), 
-				  passwd:$("#passwd").val(),
-			      name:$("#name").val(),
-			      address:$("#address").val(),
-			      tel:$("#tel").val()};
+		  var query = {u_id:$("#id").val(), 
+				  u_pass:$("#passwd").val(),
+			      u_name:$("#name").val(),
+			      u_address:$("#address").val(),
+			      u_tel:$("#tel").val(),
+			      u_birthdate:$("#bdate").val()};
 		  
 		  $.ajax({
 		      type:"post",
@@ -101,5 +102,11 @@ function checkIt() {
         $("#tel").focus();
         status = false;
         return false;
-    }  
+    }
+    if(!$("#bdate").val()) {//생일을 입력하지 않으면 수행
+        alert("생년월일을 입력하세요");
+        $("#bdate").focus();
+        status = false;
+        return false;
+    } 
 }
